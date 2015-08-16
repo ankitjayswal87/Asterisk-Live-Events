@@ -1,0 +1,192 @@
+<html>
+<head>
+<style>
+.extenBox {
+    float: left;
+    width: 120px;
+    height: 50px;
+    margin: 10px;
+    text-align:center;
+    background-color:#b2b2b2;
+    border-radius:10px;
+    border: 1px solid black;  
+}
+
+.agentBox {
+    float: right;
+    width: 120px;
+    height: 50px;
+    margin: 10px;
+    text-align:center;
+    background-color:#b2b2b2;
+    border-radius:10px;
+    border: 1px solid black;
+}
+
+.callingBox {
+    float: left;    
+    width: 120px;
+    height: 50px;
+    margin: 10px;
+    text-align:center;
+    background-color:#8DD430;
+    border-radius:10px;
+    border: 1px solid black;
+}
+
+.agentcallingBox {
+    float: right;
+    width: 120px;
+    height: 50px;
+    margin: 10px;
+    text-align:center;
+    background-color:#8DD430;
+    border-radius:10px;
+    border: 1px solid black;
+}
+
+.ringingBox {
+    float: left;
+    width: 120px;
+    height: 50px;
+    margin: 10px;
+    text-align:center;
+    background-color:#ff3737;
+    border-radius:10px;
+    border: 1px solid black;
+}
+
+.agentringingBox {
+    float: right;
+    width: 120px;
+    height: 50px;
+    margin: 10px;
+    text-align:center;
+    background-color:#ff3737;
+    border-radius:10px;
+    border: 1px solid black;
+}
+
+.registeredBox {
+    float: left;
+    width: 120px;
+    height: 50px;
+    margin: 10px;
+    text-align:center;
+    background-color:#385413;
+    border-radius:10px;
+    border: 1px solid black;
+}
+
+
+
+h1 {color:#f42727}
+h2 {color:orange;font-size:100%;}
+body {background-color:#252a3d}
+</style>
+</head>
+<body>
+<input type="text" id="info">
+<input type="text" id="info1">
+<input type="text" id="info2">
+<h1><center>Call Center Monitoring<center></h1>
+<h2>Extension Status</h2>
+<div id="1000" class="extenBox">1000</div>
+<div id="1001" class="extenBox">1001</div>
+<div id="1002" class="extenBox">1002</div>
+<div id="1000a" class="agentBox">1000</div>
+<div id="1001a" class="agentBox">1001</div>
+<div id="1002a" class="agentBox">1002</div>
+
+<br><br><br><br>
+<div id="1003" class="extenBox">1003</div>
+<div id="1004" class="extenBox">1004</div>
+<div id="1005" class="extenBox">1005</div>
+<div id="1003a" class="agentBox">1003</div>
+<div id="1004a" class="agentBox">1004</div>
+<div id="1005a" class="agentBox">1005</div>
+
+<br><br><br><br>
+<div id="1006" class="extenBox">1006</div>
+<div id="1007" class="extenBox">1007</div>
+<div id="1008" class="extenBox">1008</div>
+<div id="1006a" class="agentBox">1006</div>
+<div id="1007a" class="agentBox">1007</div>
+<div id="1008a" class="agentBox">1008</div>
+
+<br><br><br><br>
+<div id="1009" class="extenBox">1009</div>
+<div id="1010" class="extenBox">1010</div>
+<div id="1011" class="extenBox">1011</div>
+<div id="1009a" class="agentBox">1009</div>
+<div id="1010a" class="agentBox">1010</div>
+<div id="1011a" class="agentBox">1011</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script type="text/javascript">
+  var socket = io.connect('');
+  socket.on('news', function (data) {
+    console.log(data);
+document.getElementById("info").value = data.Event;
+document.getElementById("info1").value = data.Channel;
+document.getElementById("info2").value = data.CallerIDNum;
+
+if(data.Event=="Newstate" && data.ChannelStateDesc=="Ringing"){
+document.getElementById(data.CallerIDNum).innerHTML = data.CallerIDNum + " is ringing";
+document.getElementById(data.CallerIDNum).className = "callingBox";
+document.getElementById(data.ConnectedLineNum).innerHTML = data.ConnectedLineNum + " is calling";
+document.getElementById(data.ConnectedLineNum).className = "ringingBox";
+}
+
+else if(data.Event=="Newstate" && data.ChannelStateDesc=="Up"){
+	//console.log("channel "+channel);
+	document.getElementById(data.CallerIDNum).innerHTML = data.CallerIDNum + " on Call";
+	document.getElementById(data.CallerIDNum).className = "callingBox";
+	document.getElementById(ConnectedLineNum).innerHTML = ConnectedLineNum + " on Call";
+	document.getElementById(ConnectedLineNum).className = "callingBox";
+}
+
+/*else if(data.Event=="PeerStatus" && data.PeerStatus=="Registered"){
+	document.getElementById(data.Peer.split("/")[1]).innerHTML = data.Peer.split("/")[1] +" "+ data.PeerStatus;
+        document.getElementById(data.Peer.split("/")[1]).className = "registeredBox";
+}*/
+
+/*else if(data.Event=="PeerStatus" && data.PeerStatus=="Unregistered"){
+        document.getElementById(data.Peer.split("/")[1]).innerHTML = data.Peer.split("/")[1];
+        document.getElementById(data.Peer.split("/")[1]).className = "extenBox";
+}*/
+
+/*else if(data.Event=="QueueMemberAdded"){
+	document.getElementById(data.MemberName.split("/")[1]+'a').innerHTML = data.MemberName.split("/")[1] +" Logged In";
+        document.getElementById(data.MemberName.split("/")[1]+'a').className = "agentcallingBox";
+}*/
+
+/*else if(data.Event=="QueueMemberRemoved"){
+        document.getElementById(data.MemberName.split("/")[1]+'a').innerHTML = data.MemberName.split("/")[1];
+        document.getElementById(data.MemberName.split("/")[1]+'a').className = "agentBox";
+}*/
+
+else if(data.Event=="QueueMemberStatus" && data.Status==1){
+	document.getElementById(data.MemberName.split("/")[1]+'a').innerHTML = data.MemberName.split("/")[1];
+        document.getElementById(data.MemberName.split("/")[1]+'a').className = "agentBox";
+}
+
+else if(data.Event=="QueueMemberStatus" && data.Status==2){
+        document.getElementById(data.MemberName.split("/")[1]+'a').innerHTML = data.MemberName.split("/")[1] +" In Use";
+        document.getElementById(data.MemberName.split("/")[1]+'a').className = "agentcallingBox";
+}
+
+else if(data.Event=="QueueMemberStatus" && data.Status==6){
+        document.getElementById(data.MemberName.split("/")[1]+'a').innerHTML = data.MemberName.split("/")[1] +" is ringing";
+        document.getElementById(data.MemberName.split("/")[1]+'a').className = "agentringingBox";
+}
+
+else if(data.Event=="Hangup" && (data.Channel.split("/"))[0]=="SIP"){
+	document.getElementById(data.CallerIDNum).innerHTML = data.CallerIDNum;
+	document.getElementById(data.CallerIDNum).className = "extenBox";
+}
+
+  });
+</script>
+</body>
+</html>
