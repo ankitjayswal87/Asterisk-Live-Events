@@ -1,7 +1,7 @@
 # Asterisk-Live-Events
 Gives live call status, of Asterisk PBX.
 
-##########  by Ankit Jayswal, ### Asterisk Live Call Status ### Date: 16-Aug-2015 ###############
+##########  by Ankit Jayswal, Email: ankitjayswal87@gmail.com ### Asterisk Live Call Status ### Date: 16-Aug-2015 ###############
 
 Dependency Needed to be installed:
 
@@ -40,3 +40,7 @@ write = all
 4. Browse http://localhost:3000/  you can see live call status monitoring web page
 
 5. Now do some events, like calling, with registered soft phones and observe it.
+
+
+
+Feel Free to ask any query at: ankitjayswal87@gmail.com
