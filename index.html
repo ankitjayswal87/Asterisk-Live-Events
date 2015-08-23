@@ -90,7 +90,7 @@ body {background-color:#252a3d}
 <input type="text" id="info1">
 <input type="text" id="info2">
 <h1><center>Call Center Monitoring<center></h1>
-<h2>Extension Status</h2>
+<table width="100%"><tr><td width="68%"><h2>Exten Status</td></h2><td><h2>Agent Status</h2></td></tr></table>
 <div id="1000" class="extenBox">1000</div>
 <div id="1001" class="extenBox">1001</div>
 <div id="1002" class="extenBox">1002</div>
@@ -184,9 +184,12 @@ else if(data.Event=="QueueMemberStatus" && data.Status==6){
 else if(data.Event=="Hangup" && (data.Channel.split("/"))[0]=="SIP"){
 	document.getElementById(data.CallerIDNum).innerHTML = data.CallerIDNum;
 	document.getElementById(data.CallerIDNum).className = "extenBox";
+	document.getElementById(data.CallerIDNum+'a').innerHTML = data.CallerIDNum;
+        document.getElementById(data.CallerIDNum+'a').className = "agentBox";
 }
 
   });
 </script>
 </body>
 </html>
+
