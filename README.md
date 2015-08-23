@@ -3,7 +3,7 @@ Gives live call status, of Asterisk PBX.
 
 ##########  by Ankit Jayswal, ### Asterisk Live Call Status ### Date: 16-Aug-2015 ###############
 
-Dependency Needed:
+Dependency Needed to be installed:
 
 This project based on nodejs code and HTML,
 You should be ready with installation of following nodejs npm modules on your system.
@@ -12,14 +12,31 @@ You should be ready with installation of following nodejs npm modules on your sy
 - npm install express
 
 How to Use:
+My nodejs server code and Asterisk box are on same host
 
-1. Just you have to run server.js file, like nodejs server.js at your terminal. You can also run this as, forever start server.js ,to run it forever.
-root@ankit:/home/nodejs# nodejs server.js
-listening on *:3000 192.168.43.149
+1. Update manager.conf file as per below, in your asterisk server resides at /etc/asterisk/manager.conf
+
+[general]
+enabled = yes
+webenabled = yes
+
+port = 5038
+bindaddr = 0.0.0.0
 
 
+[mark]
+secret = mysecret
+deny=0.0.0.0/0.0.0.0
+permit=0.0.0.0/0.0.0.0
+read = all
+write = all
 
-2. Now, you can see live call status web page at, http://ip_address:3000/
-3. Just do events like calling,ringing, etc with help of your SIP phones and observe. 
+2. Replace IP address in server.js file with your asterisk box IP address.
 
+3. Run server.js file as below
 
+	nodejs server.js
+
+4. Browse http://localhost:3000/  you can see live call status monitoring web page
+
+5. Now do some events, like calling, with registered soft phones and observe it.
