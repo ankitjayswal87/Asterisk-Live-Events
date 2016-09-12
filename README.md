@@ -7,7 +7,9 @@ Dependency Needed to be installed:
 First, Setup nodejs environment on your Ubuntu system
 
 apt-get update
+
 apt-get install nodejs
+
 apt-get install npm
 
 Reference Link: https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server
