@@ -5,6 +5,7 @@ Gives live call status, of Asterisk PBX.
 
 Dependency Needed to be installed:
 First, Setup nodejs environment on your Ubuntu system
+
 apt-get update
 apt-get install nodejs
 apt-get install npm
