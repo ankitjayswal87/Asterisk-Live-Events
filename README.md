@@ -24,7 +24,8 @@ npm install socket.io
 npm install express
 
 How to Use:
-My nodejs server code and Asterisk box are on same host
+
+Remember, My nodejs server code and Asterisk box are on same host
 
 1. Update manager.conf file as per below, in your asterisk server resides at /etc/asterisk/manager.conf
 
