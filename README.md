@@ -16,8 +16,11 @@ Reference Link: https://www.digitalocean.com/community/tutorials/how-to-install-
 
 Now you need to install following node modules with help of NPM (Node Package Manager)
 Install following node modules with folowing commands,
+
 npm install asterisk.io
+
 npm install socket.io
+
 npm install express
 
 How to Use:
@@ -26,10 +29,13 @@ My nodejs server code and Asterisk box are on same host
 1. Update manager.conf file as per below, in your asterisk server resides at /etc/asterisk/manager.conf
 
 [general]
+
 enabled = yes
+
 webenabled = yes
 
 port = 5038
+
 bindaddr = 0.0.0.0
 
 
