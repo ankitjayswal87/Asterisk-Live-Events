@@ -40,10 +40,15 @@ bindaddr = 0.0.0.0
 
 
 [mark]
+
 secret = mysecret
+
 deny=0.0.0.0/0.0.0.0
+
 permit=0.0.0.0/0.0.0.0
+
 read = all
+
 write = all
 
 2. Replace IP address in server.js file with your asterisk box IP address.
