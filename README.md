@@ -4,12 +4,18 @@ Gives live call status, of Asterisk PBX.
 ##########  by Ankit Jayswal, Email: ankitjayswal87@gmail.com ### Asterisk Live Call Status ### Date: 16-Aug-2015 ###############
 
 Dependency Needed to be installed:
+First, Setup nodejs environment on your Ubuntu system
+apt-get update
+apt-get install nodejs
+apt-get install npm
 
-This project based on nodejs code and HTML,
-You should be ready with installation of following nodejs npm modules on your system.
-- npm install asterisk.io
-- npm install socket.io
-- npm install express
+Reference Link: https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server
+
+Now you need to install following node modules with help of NPM (Node Package Manager)
+Install following node modules with folowing commands,
+npm install asterisk.io
+npm install socket.io
+npm install express
 
 How to Use:
 My nodejs server code and Asterisk box are on same host
@@ -37,9 +43,9 @@ write = all
 
 	nodejs server.js
 
-4. Browse http://localhost:3000/  you can see live call status monitoring web page
+4. Browse http://IP:3000/  you can see live call status monitoring web page
 
-5. Now do some events, like calling, with registered soft phones and observe it.
+5. Now, call between registered two soft phones called 1000 and 1001, you can see calling, ringing, on call etc events.
 
 
 
